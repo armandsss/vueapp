@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="sideNav">
+    <v-navigation-drawer v-model="sideNav" temporary>
       <v-list>
         <v-list-tile>
           <v-list-tile-action>
@@ -12,7 +12,7 @@
     </v-navigation-drawer>
     <v-toolbar dark class="primary">
       <v-toolbar-side-icon
-        @click.stop.native="sideNav = !sideNav"
+        @click.native.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title>DevMeetup</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -33,7 +33,7 @@
   export default {
     data () {
       return {
-        sideNav: false
+        sideNav: null
       }
     }
   }
