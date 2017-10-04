@@ -11,8 +11,6 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false
 
 Vue.filter('date', DateFilter)
-
-/* makes sure we can use `app-alert` Vue component globaly */
 Vue.component('app-alert', AlertCmp)
 
 /* eslint-disable no-new */
@@ -29,5 +27,11 @@ new Vue({
       projectId: 'vueapp-1771d',
       storageBucket: 'vueapp-1771d.appspot.com'
     })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
+    this.$store.dispatch('loadMeetups')
   }
 })
