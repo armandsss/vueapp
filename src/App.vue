@@ -37,6 +37,7 @@
           :to="item.link">
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
+
         </v-btn>
         <v-btn
           v-if="userIsAuthenticated"
@@ -44,6 +45,7 @@
           @click="onLogout">
           <v-icon left dark>exit_to_app</v-icon>
           Logout
+
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
